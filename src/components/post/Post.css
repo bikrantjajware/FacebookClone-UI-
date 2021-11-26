@@ -1,0 +1,118 @@
+.post {
+  border-radius: 10px;
+  -webkit-box-shadow: 8px 8px 6px -6px #ced0d4;
+  -moz-box-shadow: 8px 8px 6px -6px #ced0d4;
+  box-shadow: 8px 8px 6px -6px #ced0d4;
+  margin: 30px 0;
+  border: 1px solid rgb(206, 204, 204);
+}
+
+.postWrapper {
+  padding: 10px;
+}
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.postTopLeft {
+  margin-right: 10px;
+  display: flex;
+}
+.postMetaInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+.postUsername {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.postDate {
+  font-size: 12px;
+}
+
+.postProfileImg {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  cursor: pointer;
+}
+.postCenter {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0;
+}
+.postImage {
+  width: 100%;
+  object-fit: fill;
+  max-height: 500px;
+}
+.postText {
+  margin-bottom: 10px;
+}
+
+.postBottomTop {
+  display: flex;
+  justify-content: space-between;
+  color: #65676b;
+}
+
+.postBottomTopLeft {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.postBottomTopLeft:hover,
+.commentCount:hover,
+.shareCount:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(100, 97, 97);
+}
+.commentCount {
+  margin-right: 5px;
+}
+
+.postBottomBottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.postBottomBottomleft:hover,
+.postBottomBottomCenter:hover,
+.postBottomBottomRight:hover {
+  background-color: rgb(227, 229, 232);
+}
+.postHr {
+  margin: 30px;
+}
+.postBottomBottomleft,
+.postBottomBottomCenter,
+.postBottomBottomRight {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: teal;
+  padding: 5px 100px;
+  border-radius: 10px;
+}
+.likeText,
+.commentText,
+.shareText {
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .postBottomBottomleft,
+  .postBottomBottomCenter,
+  .postBottomBottomRight {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+  }
+}

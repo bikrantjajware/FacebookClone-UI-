@@ -1,0 +1,96 @@
+.topbar {
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+.logo {
+  font-size: 1.4rem;
+  margin-left: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  background-color: #0f92f3;
+  border-radius: 50%;
+  letter-spacing: 2px;
+  padding: 5px;
+}
+
+.topbar-left {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.topbar-center {
+  flex: 5;
+  justify-content: center;
+  align-items: center;
+}
+.topbar-right {
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logoContainer {
+  flex: 2;
+}
+
+.searchbar {
+  flex: 10;
+
+  height: 30px;
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+.searchInput {
+  border: none;
+  width: 100%;
+  font-size: 1.1rem;
+}
+.searchInput:focus {
+  outline: none;
+}
+.searchIcon {
+  font-size: 20px !important;
+  margin-left: 10px;
+}
+.topbarIcons {
+  align-items: center;
+}
+.topbar-center .topbarIcons {
+  display: flex;
+  justify-content: center;
+}
+.topbar-right .topbarIcons {
+  display: flex;
+  justify-content: flex-end;
+}
+.topbarIconItem {
+  margin: 25px;
+  color: lightslategray;
+}
+.topbarIconItem:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.profileImg {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  cursor: pointer;
+}
