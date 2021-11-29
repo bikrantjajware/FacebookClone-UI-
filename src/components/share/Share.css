@@ -13,8 +13,8 @@
 }
 
 .shareProfileImage {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -64,4 +64,55 @@
     display: none;
     background-color: red;
   }
+}
+
+/* MODAL STYLE */
+.modalTop {
+  display: flex;
+}
+.modalTitle {
+  text-align: center;
+  margin: auto;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.modalUsername {
+  font-weight: bold;
+  margin-left: 10px;
+}
+.postTextInput {
+  width: 100%;
+  height: 150px;
+  font-size: 1.2rem;
+  border: none;
+}
+.postTextInput:focus {
+  outline: none;
+}
+.postFileInput {
+  display: none;
+}
+.postFileInputLabel {
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: black;
+  border: 1px solid rgb(221, 235, 235);
+}
+.fileIcone {
+  float: right;
+  size: 0.8rem;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.mediaPreview {
+  width: 50px;
 }

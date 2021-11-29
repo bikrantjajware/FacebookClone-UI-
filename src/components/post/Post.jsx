@@ -4,18 +4,24 @@ import { MoreVert ,Favorite, ThumbUpOutlined,ModeCommentOutlined,ShareOutlined} 
 import {RecommendRounded} from '@mui/icons-material';
 
 
-const Post = () => {
+const Post = ({post}) => {
+
+
+    
+    const {name,picture} = post.user 
+    const {caption,timestamp,media, like,comment,share} = post
+
     return (
         <div className="post">
             <div className="postWrapper">
                 <div className="postTop">
                         <div className="postTopLeft">
                             <div>
-                                <img className="postProfileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEOEHLo5T0laBB8JKDrMY2fpVYeYNHUnDMA&usqp=CAU" alt="profile" />
+                                <img className="postProfileImg" src={picture} alt="profile" />
                             </div>
                             <div className="postMetaInfo">
-                                <span className="postUsername">Daniel Craig</span>
-                                <span className="postDate">5 mins ago</span>
+                                <span className="postUsername">{name}</span>
+                                <span className="postDate">{timestamp.toLocaleString()} </span>
                             </div>
                         </div>
                         <div className="postTopRight">
@@ -23,19 +29,19 @@ const Post = () => {
                         </div>
                 </div>
                 <div className="postCenter">
-                    <span className="postText">My first post text</span>
-                    <img className="postImage" src="https://www.denofgeek.com/wp-content/uploads/2020/04/James-Bond-Gun-Barrel-1.jpg?fit=1400%2C874" alt="james-bond" />
+                    <span className="postText">{caption}</span>
+                    <img className="postImage" src={media} alt={caption} />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomTop">
                         <div className="postBottomTopLeft">
                             <RecommendRounded className="likeIcon"  style={{color:'blue',fontSize:'1.3rem'}} />
-                            <Favorite className="likeIcon" style={{color:'red',fontSize:'1.3rem'}} />
-                            <span className="likeCounter">1k</span>
+                            <Favorite className="heartIcon" style={{color:'red',fontSize:'1.3rem'}} />
+                            <span className="likeCounter">{like}</span>
                         </div>
                         <div className="postBottomTopRight">
-                            <span className="commentCount">100 comments</span>
-                            <span className="shareCount">6 shares</span>
+                            <span className="commentCount">{comment} comments</span>
+                            <span className="shareCount">{share} shares</span>
                         </div>
                     </div>
                     <hr className="posteHr" />

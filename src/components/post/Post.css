@@ -8,7 +8,7 @@
 }
 
 .postWrapper {
-  padding: 10px;
+  padding: 20px;
 }
 .postTop {
   display: flex;
@@ -49,7 +49,7 @@
 }
 .postImage {
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
   max-height: 500px;
 }
 .postText {
@@ -98,13 +98,17 @@
   align-items: center;
   cursor: pointer;
   color: teal;
-  padding: 5px 100px;
+  padding: 5px 50px;
   border-radius: 10px;
 }
 .likeText,
 .commentText,
 .shareText {
   margin-left: 5px;
+}
+.likeIcon:hover,
+.heartIcon:hover {
+  transform: scale(1.3);
 }
 
 @media only screen and (max-width: 1000px) {
