@@ -16,7 +16,7 @@ const Share = ({user:{loading,user},getUser,addPost}) => {
     
     useEffect( () => {
         getUser();
-    },[])
+    },[getUser])
 
 
     const changeCaption = (e) => {
@@ -28,19 +28,20 @@ const Share = ({user:{loading,user},getUser,addPost}) => {
     }
 
     const onSubmit = (e) => {
-       if(media === null || caption === '' )
+       if(media === null && caption === '' )
         return console.log("Invalid Data");
     
         const post = {
             user: user,
             caption: caption,
-            media: URL.createObjectURL(media),
+            media: media && URL.createObjectURL(media),
             timestamp: new Date()
         }
         
          addPost(post); 
          setCaption('')
-         setMedia(null);       
+         setMedia(null); 
+         setModalIsOpen(false);
     }
 
 
@@ -102,7 +103,7 @@ const Share = ({user:{loading,user},getUser,addPost}) => {
                                 <label className="postFileInputLabel" htmlFor="file-input">Add to your post  <span className="fileIcone"><AttachFile/> </span></label>
                                 
                                 <input onChange={changeMedia} type="file" id="file-input" className="postFileInput"   />
-                                <Button className="submitButton"  onClick={onSubmit}>Post</Button>
+                                <Button className="submitButton"  style={caption ==='' ? { fontWeight: 'bold' } : {backgroundColor:'blue',color:'white'} }onClick={onSubmit}>Post</Button>
                             </form>
 
                         </div>

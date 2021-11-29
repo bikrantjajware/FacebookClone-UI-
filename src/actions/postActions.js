@@ -1,4 +1,4 @@
-import {GET_POSTS,GET_POST_USER,ADD_POST} from './types'
+import {GET_POSTS,GET_POST_USER,ADD_POST,LIKE_POST,DISLIKE_POST} from './types'
 import {posts} from '../db';
 import { users } from '../db';
 import { setLoading } from './userActions';
@@ -30,12 +30,34 @@ export const getPostUser = (id) => dispatch => {
 
 export const addPost = (data) => dispatch => {
     data.id = posts.length+1;
-    data.like= 0;
+    data.like= [];
     data.comment= 0;
     data.share= 0;
-    console.log(data);
+    
     dispatch({
         type: ADD_POST,
         payload: data
+    })
+}
+export const likePost = (id,userId) => dispatch => {
+
+    // const post = posts.filter(post => post.id === id)[0];
+
+    dispatch({
+        type: LIKE_POST,
+        payload: {
+            post: id,
+            user: userId
+        }
+    })
+}
+export const dislikePost = (id,userId) => dispatch => {
+
+    dispatch({
+        type: DISLIKE_POST,
+        payload: {
+            post: id,
+            user: userId
+        }
     })
 }

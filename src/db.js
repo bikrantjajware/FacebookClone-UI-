@@ -27,7 +27,7 @@ export const posts = [
         user: 1,
         caption: "a good evening",
         media: "https://www.goodmorninghdloveimages.com/wp-content/uploads/2020/04/Wishing-You-a-Sunset-Good-Evening-Images.jpg",
-        like: [],
+        like: [1,2,3,4],
         comment: 5,
         share: 0,
         timestamp: new Date('2021,10,02')
@@ -37,7 +37,7 @@ export const posts = [
         user: 1,
         caption: "good morning",
         media: "https://www.birthdaywishes.expert/wp-content/uploads/2015/01/friend-good-morning-social.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1",
-        like: 5,
+        like: [1,2,3],
         comment: 2,
         share: 0,
         timestamp: new Date('2021,11,05')
@@ -47,7 +47,7 @@ export const posts = [
         user: 2,
         caption: "good night",
         media: "https://www.energids.be/nl/media/mediumimg/18/24tarif-exclusif-nuit.jpg",
-        like: 15,
+        like: [1,2,4],
         comment: 5,
         share: 1,
         timestamp: new Date('2021,07,01')

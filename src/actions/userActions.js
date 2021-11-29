@@ -1,4 +1,4 @@
-import { GET_USER,REMOVE_USER,SET_LOADING } from "./types";
+import { GET_USER,SET_LOADING } from "./types";
 import {users} from '../db';
 
 export const setLoading = () => {

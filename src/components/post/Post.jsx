@@ -1,15 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Post.css';
 import { MoreVert ,Favorite, ThumbUpOutlined,ModeCommentOutlined,ShareOutlined} from '@material-ui/icons';
 import {RecommendRounded} from '@mui/icons-material';
+import { likePost,dislikePost } from '../../actions/postActions';
+import { connect } from 'react-redux';
 
 
-const Post = ({post}) => {
+const Post = ({post,isLiked,loggedInUser,likePost,dislikePost}) => {
 
-
-    
     const {name,picture} = post.user 
     const {caption,timestamp,media, like,comment,share} = post
+
+    const [liked,setLiked] = useState(isLiked);
+    const onLike = () => {
+         console.log('liked=',liked);
+        if(liked)
+            dislikePost(post.id,loggedInUser.id);
+        else
+            likePost(post.id,loggedInUser.id);
+
+        setLiked(!liked)
+    }
 
     return (
         <div className="post">
@@ -30,14 +41,14 @@ const Post = ({post}) => {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{caption}</span>
-                    <img className="postImage" src={media} alt={caption} />
+                    {media && <img className="postImage" src={media} alt={caption} />}
                 </div>
                 <div className="postBottom">
                     <div className="postBottomTop">
                         <div className="postBottomTopLeft">
                             <RecommendRounded className="likeIcon"  style={{color:'blue',fontSize:'1.3rem'}} />
                             <Favorite className="heartIcon" style={{color:'red',fontSize:'1.3rem'}} />
-                            <span className="likeCounter">{like}</span>
+                            <span  className="likeCounter">{like.length}</span>
                         </div>
                         <div className="postBottomTopRight">
                             <span className="commentCount">{comment} comments</span>
@@ -46,9 +57,9 @@ const Post = ({post}) => {
                     </div>
                     <hr className="posteHr" />
                     <div className="postBottomBottom">
-                        <div className="postBottomBottomleft">
-                                <ThumbUpOutlined />
-                                <span className="likeText">Like</span>
+                        <div className="postBottomBottomleft" onClick={onLike}>
+                                <ThumbUpOutlined className={`${liked && "blue"}`} />
+                                <span  className="likeText" >Like</span>
                         </div>
                         <div className="postBottomBottomCenter">
                                  <ModeCommentOutlined />
@@ -65,4 +76,5 @@ const Post = ({post}) => {
     )
 }
 
-export default Post
+
+export default connect(null,{likePost,dislikePost})(Post);
