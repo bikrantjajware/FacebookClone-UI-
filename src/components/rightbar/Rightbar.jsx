@@ -17,7 +17,7 @@ const Rightbar = ({getUsers,users: {users,loading}}) => {
                 
                 
 
-                <ul className="rightbarList">
+                <ul style={{listStyle: 'none'}}  className="rightbarList">
                 <div className="rightbarTitle">
                     <img className="birthdayImg" src="assets/gift.png" alt="gift" />
                      <strong className="rightbarTitle"> Birthday's</strong>
