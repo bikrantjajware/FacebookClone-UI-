@@ -1,0 +1,90 @@
+.chatbox {
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid grey;
+  border-radius: 10px 10px 0 0;
+  -webkit-box-shadow: 0 8px 6px -6px #ced0d4;
+  -moz-box-shadow: 0 8px 6px -6px #ced0d4;
+  box-shadow: 0 8px 6px -6px #ced0d4;
+  scroll-behavior: auto;
+}
+
+.circularImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.chatboxTop {
+  display: flex;
+  align-items: center;
+  margin: 3px;
+  justify-content: space-between;
+}
+.topLeft {
+  display: flex;
+  align-items: center;
+}
+
+.messageBoxWrapper {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  /* margin: 10px; */
+  overflow-y: scroll;
+}
+
+.sentWrapper {
+  display: flex;
+  margin: 0;
+  justify-content: flex-end;
+}
+.receivedWrapper {
+  margin: 0;
+}
+.received {
+  background-color: rgba(236, 224, 224, 0.87);
+  padding: 4px 8px;
+  border-radius: 10px 10px 10px 0;
+}
+.sent {
+  background-color: violet;
+  letter-spacing: 1px;
+  padding: 4px;
+  margin: 5px;
+  color: white;
+  border-radius: 10px 10px 0 10px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+}
+.videoCallIcon,
+.callIcon,
+.cancelIcon {
+  cursor: pointer;
+}
+
+.messageInput {
+  border-radius: 20px;
+  border: none;
+  width: 80%;
+  padding: 5px 10px;
+  background-color: rgb(240, 230, 230);
+  word-break: break-word;
+}
+.messageInput:focus {
+  outline: none;
+  border: none;
+}
+
+.bottomWrapper {
+  display: flex;
+  align-items: center;
+}
+.sendIcon {
+  cursor: pointer;
+}

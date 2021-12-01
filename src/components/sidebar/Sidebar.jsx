@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Sidebar.css';
 import { Group,PlayCircleFilledOutlined,Flag  } from '@material-ui/icons'
 import {Groups,Storefront,History,ArrowDownwardRounded } from '@mui/icons-material';
 import SidebarItem from '../sidebarItem/SidebarItem';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { getUser } from '../../actions/userActions';
+
+const Sidebar = ({user: {user,loading},getUser}) => {
 
 
-const Sidebar = () => {
+    useEffect(()=> {
+        getUser();
+    } ,[getUser])
+    
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
@@ -15,8 +23,12 @@ const Sidebar = () => {
                 
                 
                     <li className="sidebarListItem">
-                            <img className="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEOEHLo5T0laBB8JKDrMY2fpVYeYNHUnDMA&usqp=CAU" alt="profile" />    
-                            <span>User Name</span>
+                           { 
+                                user &&  <>
+                                                <img className="profileImg" src={user.picture} alt="profile" />    
+                                                <span>{user.name}</span>
+                                            </>
+                            }
                     </li>
                     
                     <SidebarItem Component={Group} name={"Friends"} />
@@ -33,4 +45,11 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+Sidebar.propTypes = {
+    user: PropTypes.object.isRequired,
+}
+const mapStateToProps = (state) => ({
+    user: state.user
+
+})
+export default connect(mapStateToProps,{getUser})(Sidebar);

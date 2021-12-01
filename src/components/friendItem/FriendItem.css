@@ -1,0 +1,34 @@
+.friendItemContainer {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0;
+}
+.friendItemContainer:hover {
+  background-color: rgb(227, 229, 232);
+  cursor: pointer;
+}
+
+.friendImageContainer {
+  position: relative;
+}
+
+.rightbarFriendImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.onlineBadge {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  border: 2px solid white;
+  background-color: limegreen;
+}

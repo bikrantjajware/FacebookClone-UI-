@@ -13,21 +13,9 @@
 .rightBarList {
   padding: 0;
   margin: 0;
-  list-style-type: none;
+  list-style: none;
 }
 
-.rightbarFriend {
-  display: flex;
-  align-items: center;
-}
-
-.rightbarFriendImg {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
 .contact-heading {
   color: #65676b;
   padding: 10px;
@@ -38,16 +26,7 @@
   width: 50px;
   height: 50px;
 }
-.rightbarList :hover {
-  background-color: rgb(227, 229, 232);
-  cursor: pointer;
-  /*  */
-}
-.rightbarFriend {
-  padding: 15px;
-  border-radius: 10px;
-  margin: 0;
-}
+
 .rightbarTitle {
   margin: 0;
   padding: 0;
@@ -57,19 +36,7 @@
 .rightbarTitle:hover {
   background-color: white;
 }
-.friendImageContainer {
-  position: relative;
-}
-.onlineBadge {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0px;
-  right: 5px;
-  border: 2px solid white;
-  background-color: limegreen;
-}
+
 .contact-heading {
   font-weight: 600;
   font-size: 1.2rem;

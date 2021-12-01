@@ -2,6 +2,8 @@ import React from 'react'
 import './SidebarItem.css';
 
 const SidebarItem = ({ Component,name}) => {
+
+    
     return (
         <>
             <li className="sidebarListItem">

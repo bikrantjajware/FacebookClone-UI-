@@ -1,8 +1,10 @@
 import React from 'react'
 import './Topbar.css';
 import {Search,Chat,Notifications,Home,OndemandVideo,Group,Games,Storefront} from '@material-ui/icons';
+import { connect } from 'react-redux';
 
-const Topbar = () => {
+
+const Topbar = ({user: {user}}) => {
     return (
         <div className="topbar">
             <div className="topbar-left">
@@ -42,7 +44,7 @@ const Topbar = () => {
             <div className="topbar-right">
                 <div className="topbarIcons">
                     <div className="topbarIconItem">
-                    <img className="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEOEHLo5T0laBB8JKDrMY2fpVYeYNHUnDMA&usqp=CAU" alt="profile" />
+                    {user && <img className="profileImg" src={user.picture} alt="profile" />}
                             <span className="topbarIconBadge">2</span>
                     </div>
                     <div className="topbarIconItem">
@@ -62,4 +64,8 @@ const Topbar = () => {
     )
 }
 
-export default Topbar
+const mapStateToProps = (state) => ({
+    user: state.user
+})
+
+export default connect(mapStateToProps)(Topbar);
