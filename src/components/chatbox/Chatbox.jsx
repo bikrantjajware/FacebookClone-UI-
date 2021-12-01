@@ -3,7 +3,7 @@ import './Chatbox.css';
 import {VideoCall,Call,Cancel,Send} from '@material-ui/icons'
 
 
-let idCounter = 10;
+let idCounter = 15;
 
 const Chatbox = ({profilePicture,name,closeChatbox}) => {
 
@@ -15,9 +15,7 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
         setMessage(e.target.value);
     }
 
-    useEffect(() => {
-        scrollToBottom()
-      }, [message]);
+   
 
     const [chatHistory,setChatHistory] = useState([
         {
@@ -51,23 +49,33 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
             message: ":)",
         }
     ]);
+    
+    useEffect(() => {
+        scrollToBottom()
+      }, [chatHistory,message]);
+
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
       }
 
 
-    const sendMessage = () => {
+    const sendMessage = (e) => {
 
-        if(message === '')
-            return
-        const newMessage = {
-            id: idCounter++,
-            type: "sent",
-            message: message
+        if(message === "") return;
+
+        if(e.type === 'click')
+        {
+            const newMessage = {
+                id: ++idCounter,
+                type: "sent",
+                message: message
+            }
+            console.log(message);
+            setChatHistory( prev =>  [...prev,newMessage]);
+            setMessage("")
         }
-        setChatHistory([...chatHistory,newMessage]);
-        setMessage("")
+        
 
     }
     return (
@@ -94,7 +102,7 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
             </div>
             <div className="chatboxBottom">
                 <div className="bottomWrapper">
-                    <input type="text" onChange={onChange} value={message} className="messageInput" />
+                    <textarea type="text" placeholder="send message" rows={ message === "" ? 1 : Math.ceil(message.length/23) }  onChange={onChange} value={message} className="messageInput" />
                     <span className="sendIcon" onClick={sendMessage}><Send /></span>
                 </div>
             </div>
