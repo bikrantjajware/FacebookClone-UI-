@@ -1,6 +1,5 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './FriendItem.css';
-import Chatbox from '../chatbox/Chatbox';
 import { getChatHistory,removeChat } from '../../actions/chathistoryActions';
 import { connect } from 'react-redux';
 
