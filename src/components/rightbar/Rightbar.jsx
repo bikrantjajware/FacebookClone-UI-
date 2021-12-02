@@ -33,7 +33,7 @@ const Rightbar = ({getUsers,users: {users,loading}}) => {
                 {console.log('ulen=',users.length)}
                 {
                     (loading || users.length > 0 ) ?  users.map( user => <li key={user.id} className=""> 
-                                                      <FriendItem username={user.name} profilePicture={user.picture} /> 
+                                                      <FriendItem id={user.id} username={user.name} profilePicture={user.picture} /> 
                                                       </li> )
                                                     :
                                                     <h3>Loading..</h3>

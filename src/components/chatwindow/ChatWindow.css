@@ -1,0 +1,8 @@
+.chatwindow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

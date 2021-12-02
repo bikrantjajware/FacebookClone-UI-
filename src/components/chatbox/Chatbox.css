@@ -1,7 +1,7 @@
 .chatbox {
-  position: fixed;
-  bottom: 0;
-  right: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
   padding: 5px;
   background-color: #fff;
   border: 1px solid grey;

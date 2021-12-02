@@ -53,3 +53,81 @@ export const posts = [
         timestamp: new Date('2021,07,01')
     }
 ]
+
+
+export const chathistory = [
+    {
+        friend: 2,
+        messages: [
+            {
+                id:1,
+                type:"sent",
+                message: "Hi Tom",
+            },
+            {
+                id:2,
+                type:"received",
+                message: "Hello",
+            },
+            {
+                id:3,
+                type:"sent",
+                message: "Whats up",
+            },
+            {
+                id:4,
+                type:"received",
+                message: "all good...",
+            },
+            {
+                id:5,
+                type:"sent",
+                message: "cool",
+            },
+            {
+                id:6,
+                type:"received",
+                message: ":)",
+            }
+        ]
+    },
+    {
+        friend:3,
+        messages: [
+            {
+                id:1,
+                type:"sent",
+                message: "hello Morgan",
+            },
+            {
+                id:2,
+                type:"received",
+                message: "Hello",
+            },
+            {
+                id:3,
+                type:"sent",
+                message: "message to 2nd user",
+            },
+            {
+                id:4,
+                type:"received",
+                message: "all good...",
+            },
+            {
+                id:5,
+                type:"sent",
+                message: "next message",
+            },
+            {
+                id:6,
+                type:"received",
+                message: ":)",
+            }
+        ]
+    },
+    {
+        friend:4,
+        messages: []
+    }
+];

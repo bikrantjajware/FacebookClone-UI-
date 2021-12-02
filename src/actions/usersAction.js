@@ -7,9 +7,10 @@ export const setLoading = () => {
 
 export const getUsers = () => dispatch => {
     setLoading()
-    
+    const friends = users.filter( user => user.id !== 1)
     dispatch({
         type: GET_USERS,
-        payload: users
+        payload: friends
     })
 }
+

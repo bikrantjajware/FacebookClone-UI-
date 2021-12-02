@@ -1,11 +1,13 @@
 import React, { useRef,useEffect, useState } from 'react'
 import './Chatbox.css';
 import {VideoCall,Call,Cancel,Send} from '@material-ui/icons'
+import { sendMessage,removeChat } from '../../actions/chathistoryActions';
+import {connect} from 'react-redux';
 
 
 let idCounter = 15;
 
-const Chatbox = ({profilePicture,name,closeChatbox}) => {
+const Chatbox = ({messages,friend,index,sendMessage,removeChat}) => {
 
 
     const messagesEndRef = useRef(null);
@@ -16,43 +18,11 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
     }
 
    
-
-    const [chatHistory,setChatHistory] = useState([
-        {
-            id:1,
-            type:"sent",
-            message: "Hi",
-        },
-        {
-            id:2,
-            type:"received",
-            message: "Hello",
-        },
-        {
-            id:3,
-            type:"sent",
-            message: "Whats up",
-        },
-        {
-            id:4,
-            type:"received",
-            message: "all good...",
-        },
-        {
-            id:5,
-            type:"sent",
-            message: "cool",
-        },
-        {
-            id:6,
-            type:"received",
-            message: ":)",
-        }
-    ]);
     
     useEffect(() => {
+        
         scrollToBottom()
-      }, [chatHistory,message]);
+      }, [message]);
 
 
     const scrollToBottom = () => {
@@ -60,7 +30,7 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
       }
 
 
-    const sendMessage = (e) => {
+    const onSend = (e) => {
 
         if(message === "") return;
 
@@ -71,8 +41,8 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
                 type: "sent",
                 message: message
             }
-            console.log(message);
-            setChatHistory( prev =>  [...prev,newMessage]);
+            console.log(newMessage);
+            sendMessage(newMessage,index);
             setMessage("")
         }
         
@@ -82,20 +52,20 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
         <div className="chatbox">
             <div className="chatboxTop">
                 <div className="topLeft">
-                    <img src={profilePicture} className="circularImage" alt="profile" />
-                    <span className="username">{name}</span>
+                    <img  className="circularImage"  src={friend.picture} alt="profile" />
+                    <span className="username">{friend.name}</span>
                 </div>
                 <div className="topRight">
                     <span className="videoCallIcon"><VideoCall /></span>
                     <span className="callIcon"><Call /></span>
-                    <span className="cancelIcon" onClick={closeChatbox}><Cancel /></span>
+                    <span className="cancelIcon" onClick={ () => removeChat(index) } ><Cancel /></span>
                 </div>
             </div>
             <hr  />
             <div className="messageBox">
                <div className="messageBoxWrapper">
                    {
-                       chatHistory.map( msgItem => <p key={msgItem.id} className={`${msgItem.type}Wrapper`} ><span className={msgItem.type}>{msgItem.message}</span> </p> )
+                      messages && messages.map( msgItem => <p key={msgItem.id} className={`${msgItem.type}Wrapper`} ><span className={msgItem.type}>{msgItem.message}</span> </p> )
                    }
                     <div ref={messagesEndRef}></div>
                </div>
@@ -103,11 +73,11 @@ const Chatbox = ({profilePicture,name,closeChatbox}) => {
             <div className="chatboxBottom">
                 <div className="bottomWrapper">
                     <textarea type="text" placeholder="send message" rows={ message === "" ? 1 : Math.ceil(message.length/23) }  onChange={onChange} value={message} className="messageInput" />
-                    <span className="sendIcon" onClick={sendMessage}><Send /></span>
+                    <span className="sendIcon" onClick={onSend}><Send /></span>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Chatbox
+export default connect(null,{sendMessage,removeChat})(Chatbox);
